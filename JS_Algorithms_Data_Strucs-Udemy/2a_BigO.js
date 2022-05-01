@@ -26,6 +26,7 @@ function sumUpTo(number) {
     }
     return total
 }
+// OPERATIONS: 2 assignments, n comparisons, n additions & assignments, n assignments, n comparisons = 5n + 2 operations
 
 function addUpTo(n) {
     return n * (n + 1) / 2;

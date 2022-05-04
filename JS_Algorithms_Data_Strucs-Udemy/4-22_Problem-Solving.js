@@ -26,6 +26,7 @@ function characterCount(string) {
 }
 
 // Why doesn't this work??? 😭
+// I think it works now...
 
 // REVISED
 function charCount(str) {

@@ -1,6 +1,10 @@
 // SOLVE/SIMPLIFY
 // Write a function which takes a string and returns counts of each character in the string
 
+var testString1 = "Hello"
+var testString2 = "Go Sounders!"
+var testString3 = "Testing String 3"
+
 function characterCount(string) {
     // make an object to return at end
     let finalTallies = {};
@@ -17,8 +21,8 @@ function characterCount(string) {
             finalTallies[character] = 1;
         }
     }
-    // return object
-    return finalTallies;
+    // console.log(finalTallies);
+    return finalTallies
 }
 
 // Why doesn't this work??? 😭
@@ -36,6 +40,7 @@ function charCount(str) {
             };
         }
     }
+    // console.log(obj);
     return obj;
 }
 
@@ -48,5 +53,6 @@ function charCounter(str) {
             obj[char] = ++obj[char] || 1;
         }
     }
+    // console.log(obj)
     return obj;
 }

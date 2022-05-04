@@ -1,4 +1,4 @@
-// Write a function called *same* which accpts two arrays. The fucntioon should return ture if every value in teh array has it's corresponding value squared in teh second array. Thefrequency of values must be the same.
+// Write a function called *same* which accepts two arrays. The function should return true if every value in the array has its corresponding value squared in the second array. The frequency of values must be the same.
 
 // NAIVE APPROACH
 function sameNaive(arr1, arr2) {
@@ -22,17 +22,21 @@ function sameNaive(arr1, arr2) {
 
 // REFACTORED
 function sameRefactored(arr1, arr2) {
+    // Verify arrays same length
     if (arr1.length !== arr2.length) {
         return false;
     }
+    // Deconstruct arrays as objects
     let frequencyCounter1 = {}
     let frequencyCounter2 = {}
+    // Add value to key when present
     for (let val of arr1) {
         frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1
     }
     for (let val of arr2) {
         frequencyCounter2[val] = (frequencyCounter2[val] || 0) +1
     }
+    // Compare values in objects
     for (let key in frequencyCounter1) {
         if (!(key ** 2 in frequencyCounter2)) {
             return false;
@@ -41,5 +45,7 @@ function sameRefactored(arr1, arr2) {
             return false;
         }
     }
+    // console.log(frequencyCounter1);
+    // console.log(frequencyCounter2);
     return true;
 }

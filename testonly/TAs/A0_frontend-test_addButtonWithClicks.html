@@ -1,0 +1,53 @@
+// I have a button on the page that says 'i have been clicked 0 times'. 
+// Clicking the button increments its count by 1 and creates a new button that says I have been clicked 0 times. 
+// Clicking on any button on the page repeats this behavior, incrementing the button that was clicked, 
+// and creating a new 0 clicked button.
+
+// MY PSEUDCODE - 3 Sept 2022
+// Create a func that will add to the "number of clicks" + add a button (append)
+// ids for btns
+// data store clicks 
+ 
+// HTML & JS Below
+ 
+<html>
+  <body>
+ 
+    <div id="container" onclick="containerClick()"> 
+      <button id="1" data-clicks="0" onclick="buttonClick()">
+        I have been clicked 0 times
+      </button>
+    </div>
+ 
+  </body>
+</html>
+
+<script type="text/javascript">
+    
+    function buttonClick(e) {
+        const button = e.target;
+        const currentCount = button.dataset().clicks;
+        button.dataset().clicks = parseInt(currentCount) + 1;
+        button.innerHTML = `I have been clicked ${parseInt(currentCount) + 1} times`
+        
+        const newButton = document.createElement("button");
+        newButton.innerHTML = `I have been clicked 0 times`;
+        newButton.addEventListener("click", buttonClick);
+        newbutton.dataset().clicks = 0
+        getElementById("container").appendChild(newButton);
+    }
+    
+    // ALT ANSWER WITH FEWER EVENT LISTENERS
+    function containerClick(e) {
+        const button = e.currentTarget;
+        button.dataset().clicks = parseInt(currentCount) + 1;
+        button.innerHTML = `I have been clicked ${parseInt(currentCount) + 1} times`
+        
+        const newButton = document.createElement("button");
+        newButton.innerHTML = `I have been clicked 0 times`;
+        newButton.addEventListener("click", buttonClick);
+        newbutton.dataset().clicks = 0
+        getElementById("container").appendChild(newButton);
+    }
+    
+</script>

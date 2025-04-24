@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order form</title>
+  </head>
+  <body>
+    <form id="extra">
+      <input
+        type="text"
+        id="paymentVoucher"
+        name="payment.voucher.something.more"
+        value=""
+      />
+    </form>
+    <form id="shipping">
+      <input type="text" name="street.name" />
+      <input type="text" name="street.number" />
+      <input type="text" name="zipcode" />
+      <input type="text" name="contact.phone.area" />
+      <input type="text" name="contact.phone.exchange" />
+      <input type="text" name="contact.phone.subscriber" />
+    </form>
+    <script>
+
+      var extraData = serializeObject(form)
+
+      console.log(extraData)
+
+
+      // // console.log output
+      // {
+      //   payment: {
+      //         voucher: {
+      //             something: {
+      //                 more: ""
+      //             }
+      //         }
+      //    }
+      // }
+      // // not this
+      // {
+      //     "payment.voucher.something.more": ""
+      // }
+
+      let paymentVoucher = querySelector("#paymentVoucher")
+      let paymentVoucherName = querySelector("#paymentVoucher")
+
+      let userInputs = querySelectorAll("input")
+
+      function serializeObject(form) {
+          let newObject = {}
+
+          for (i = 0, i < userInputs.length, i++) {
+              const name = userInputs[i].name
+              // const name = userInputs[i].name
+              const keysArray = name.split(".")
+
+              for (j = 0, j < keysArray.length, j++) {
+              newObject = {keysArray[j]: keysArray[j+1]}
+          }
+
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!-- Build a web application that displays an interactive flash card (prompt/answer) to a user 
+and provides basic navigation features for going forward or backward through a pack of cards.
+
+classes for questionSide and for answerSide -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Test 3</title>
+    <style>
+        section {
+            height: vh100;
+            width: vw100;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .arrow {
+            font-size: 5em;
+            color: gray;
+            /* etc. */
+        }
+
+        #currentCard {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div id="leftArrow" class="arrow"><</div>
+        <div id="currentCard" class="questionSide">
+            <h4 id="cardTitle"></h4>
+            <p id="cardContent"></p>
+            <p id="cardAnswer" class="nodisplay"></p>
+        </div>
+        <div id="rightArrow" class="arrow">></div>
+    </section>
+
+    <script>
+        const leftArrow = querySelector("#leftArrow")
+const rightArrow = querySelector("#rightArrow")
+let currentCard = querySelector("#currentCard")
+let questionSide = querySelector(".questionSide")
+let answerSide = querySelector(".answerSide")
+let cardContent = querySelector("#cardContent")
+let cardAnswer = querySelector("#cardAnswer")
+
+leftArrow.addEventListener("click", prevCard)
+rightArrow.addEventListener("click", nextCard)
+questionSide.addEventListener("click", revealAnswer)
+answerSide.addEventListener("click", showQuestion)
+
+sampleCard = {
+    id: 1,
+    cardTitle: "String Methods",
+    cardContent: "Which string methods returns an array of values based on a separator?",
+    cardAnswer: "split"
+}
+
+const fullDeck = [
+    // array of all card objects
+]
+
+function prevCard() {
+    if(currentCard.id = 0) return
+    currentCard.id = currentCard.id--
+    // renderCardfull(Deck[i]);
+}
+
+function nextCard() {
+    if(currentCard.id = 0) return
+    currentCard.id = currentCard.id++
+    // renderCardfull(Deck[i]);
+}
+
+function revealAnswer() {
+    cardContent.addClass("nodisplay")
+    // css animation to flip currentCard
+    cardAnswer.removeClass("nodisplay")
+    currentCard.removeClass("questionSide")
+    currentCard.addClass("answerSide")
+}
+
+function showQuestion() {
+    cardAnswer.addClass("nodisplay")
+    // css animation to flip currentCard
+    cardContent.removeClass("nodisplay")
+    currentCard.removeClass("answerSide")
+    currentCard.addClass("questionSide")
+}
+
+// Example of render
+    //    +--------------------------------------------------------------------+
+    //    |                                                                    |
+    //    |                                                                    |
+    //    |                       +---------------------+                      |
+    //    |                       |                     |                      |
+    //    |                       |                     |                      |
+    //    |                       |                     |                      |
+    //    |                       |                     |                      |
+    //    |                       |                     |                      |
+    //    |              XX       |                     |       XX             |
+    //    |             XX        |                     |        XX            |
+    //    |            XX         |         Hello       |         XX           |
+    //    |             XX        |                     |        XX            |
+    //    |              XX       |                     |       XX             |
+    //    |                       |                     |                      |
+    //    |                       |                     |                      |
+    //    |                       |                     |                      |
+    //    |                       |                     |                      |
+    //    |                       |                     |                      |
+    //    |                       |                     |                      |
+    //    |                       |                     |                      |
+    //    |                       +---------------------+                      |
+    //    |                                                                    |
+    //    |                                                                    |
+    //    +--------------------------------------------------------------------+
+
+
+    </script>
+</body>
+</html>

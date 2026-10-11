@@ -2,9 +2,9 @@
 # Note: the commands to start below will source script in current shell (instead of executing in a subshell), 
 # this allows environment changes (like activating the virtual environment) to persist
 
-# >> source ./test_only.sh start
+# >> source ./start-test_only.sh start
 # OR      
-# >> . ./test_only.sh start
+# >> . ./start-test_only.sh start
     
 
 # Load environment variables
